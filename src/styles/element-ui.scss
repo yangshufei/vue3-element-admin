@@ -1,0 +1,513 @@
+
+$theme-light: (
+  bodyBg: #EEEDF0,
+  bodyFont: #000,
+  // el-dropdown
+  dropdownBorder: #CCCCCC,
+  dropdownBg: #F4F6F6,
+  dropdownSelectBg: #91D5FF,
+  dropdownFont: #000,
+  // el-dialog
+  dialogBoder: #DDDDDD,
+  dialogHeaderBg: #F4F6F6,
+  dialogHeadFont: #000,
+  dialogBodyBg: #FFFFFF,
+  dialogFontColor: #000,
+  // el-table
+  tableHeadBg: #EBEBEB ,
+  tableHeadFont: #5F879E,
+  tableBg: #FAFAFA,
+  tableFont: #6B6B6B,
+  tableBorder: #fff,
+  tableHover :#d6e5fa,
+  tableStripedBg: #f2f2f2,
+  // el-pagination,el-input
+  inputBg:#fff,
+  inputFont: #000,
+  inputBorder: #D4D4D4,
+  inputDisabledBg: #eee,
+  inputPlaceholder: #C0C4D6,
+  // el-select
+  selectDropdownBg: #F4F6F6,
+  selectDropdownSelectBg: #91D5FF,
+  selectDropdownSelectFont: #409EFF,
+  formLableFont: #000,
+  // el-card
+  cardBg: #FFFFFF,
+  cardFontColor: #000,
+  cardBorder: #DDDDDD,
+  // el-transfer
+  transfterBg: #F4F6F6,
+  transferColor: #6B6B6B,
+  // 时间选择器
+  pickerBg: #fff,
+  collapseBg: #fff,
+  collapseBorder: #ebeef5,
+  // loading
+  loadingMask: rgba(255, 255, 255, 0.5),
+);
+
+$theme-dark: (
+  bodyBg: #212936,
+  bodyFont: #8796B0,
+  // el-dropdown
+  dropdownBorder: #3E495B,
+  dropdownBg: #2B3648, 
+  dropdownSelectBg: #212936,
+  dropdownFont: #AFBDD1,
+  // el-dialog
+  dialogBoder: #3E495B,
+  dialogHeaderBg: #2B3648,
+  dialogHeadFont: #8291AA,
+  dialogBodyBg: #212936,
+  dialogFontColor: #AFBDD1,
+  // el-table
+  tableHeadBg: #2B3648,
+  tableHeadFont: #AFBDD1,
+  tableBg: #2B3648,
+  tableFont: #8291AA,
+  tableBorder: #3D485A,
+  tableHover :#212936,
+  tableStripedBg: #2B3648,
+  // el-pagination,el-input
+  inputBg:#3E4B61,
+  inputFont: #AFBDD1,
+  inputBorder: #59667C,
+  inputDisabledBg: rgb(65, 63, 63),
+  inputPlaceholder: #858181,
+  // el-select
+  selectDropdownBg: #3E495B,
+  selectDropdownSelectBg: #212936,
+  selectDropdownSelectFont: #409EFF,
+  formLableFont: #AFBDD1,
+  // el-card
+  cardBg: #3E495B ,
+  cardFontColor: #AFBDD1,
+  cardBorder: #2B3648,
+  // el-transfer
+  transfterBg: #2B3648,
+  transferColor: #8291AA,
+  // 时间选择器
+  pickerBg: #3E495B,
+  collapseBg: #2B3648,
+  collapseBorder: #3E495B,
+  //loading
+  loadingMask: rgba(0, 0, 0, 0.8),
+);
+
+@import "styles/themesHandle.scss";
+
+// body
+body {
+  @include font_color("bodyFont");
+  @include background_color("bodyBg");
+}
+
+// ======================== dropdown ====================
+
+.dropdown-trigger {
+  @include font_color("dropdownFont");
+  display: inline-block;
+}
+.el-dropdown-menu {
+  padding: 5px 6px;
+  border: 1px solid;
+  @include border_color("dropdownBorder");
+  @include background_color("dropdownBg");
+  .el-dropdown-menu__item {
+    font-size: 12px;
+    @include font_color("dropdownFont");
+    &:before {
+      background-color: transparent;
+    }
+    &:hover {
+      @include background_color("dropdownSelectBg");
+    }
+    & + .el-dropdown-menu__item {
+      margin-top: 5px;
+    }
+  }
+  .el-dropdown-menu__item:focus,
+  .el-dropdown-menu__item:not(.is-disabled):hover {
+    @include font_color("dropdownFont");
+    @include background_color("dropdownSelectBg");
+  }
+}
+
+// ======================== dialog =======================
+
+.el-dialog {
+  .el-dialog__header {
+    border-bottom: 1px solid;
+    @include border_color("dialogBoder");
+    @include background_color("dialogHeaderBg");
+    padding: 12px 20px 8px;
+    .el-dialog__title {
+      @include font_color("dialogHeadFont");
+    }
+  }
+  
+  .el-dialog__body {
+    @include background_color("dialogBodyBg");
+    @include font_color("dialogFontColor");
+    padding: 20px;
+    max-height: calc(97vh - 121px);
+    overflow-y: auto;
+  }
+  
+  .el-dialog__footer {
+    border-top: 1px solid;
+    @include border_color("dialogBoder");
+    @include background_color("dialogBodyBg");
+    padding: 12px 20px;
+  }
+}
+
+// .el-message
+
+.el-message-box {
+  @include background_color("inputBg");
+  @include border_color("inputBorder");
+  .el-message-box__message{
+    @include font_color("formLableFont");
+    user-select: none;
+  }
+  .el-message-box__header {
+    .el-message-box__title {
+      @include font_color("formLableFont");
+    }
+  }
+  .el-message-box__content {
+    .el-message-box__message {
+      @include font_color("formLableFont");
+    }
+  }
+}
+
+// ======================== table ========================
+
+.public-table {
+  thead th {
+    @include background_color("tableHeadBg");
+    @include font_color("tableHeadFont");
+    @include border_color("tableBorder");
+    height: 42px;
+    user-select: text;
+    border-bottom: 1px solid;
+    border-top: 1px solid;
+    & + th {
+      border-left: 1px solid;
+    }
+    .caret-wrapper {
+      height: 23px;
+      margin-top: -1px;
+    }
+    .sort-caret.ascending {
+      @include border_bottom_color("tableFont");
+      top: 0;
+    }
+    .sort-caret.descending {
+      @include border_top_color("tableFont");
+      bottom: 0;
+    }
+
+    &.ascending {
+      .sort-caret.ascending {
+        @include border_bottom_color("tableFont");
+      }
+      .sort-caret.descending {
+        @include border_top_transparent();
+      }
+    }
+
+    &.descending {
+      .sort-caret.ascending {
+        @include border_bottom_transparent();
+      }
+      .sort-caret.descending {
+        @include border_top_color("tableFont");
+      }
+    }
+  }
+
+  tbody td {
+    @include background_color("tableBg");
+    @include font_color("tableFont");
+    height: 42px;
+    padding: 2px 0;
+    border-bottom: 1px solid;
+    @include border_color("tableBorder");
+    & + td {
+      border-left: 1px solid;
+      @include background_color("tableBg");
+    }
+  }
+
+  .el-table__empty-block {
+    @include background_color("tableBg");
+    .el-table__empty-text {
+      @include font_color("tableFont");
+    }
+  }
+  .el-table__fixed-right::before, .el-table__fixed::before {
+    @include background_color("tableBorder");
+  }
+  .el-table td, .el-table th.is-leaf {
+    border-bottom: 1px solid;
+    @include border_color("tableBorder");
+  }
+  .el-table, .el-table__expanded-cell {
+    @include background_color("tableBg");
+  }
+  .el-table--border, .el-table--group {
+    @include border_color("tableBorder");
+    th {
+      border-bottom: none;
+    }
+  }
+  .el-table--border::after, .el-table--group::after, .el-table::before {
+    @include background_color("tableBorder");
+  }
+  tbody .el-table__row:hover td {
+    @include background_color("tableHover");
+  }
+  div.el-table::before {
+    @include background_color("tableBorder");
+  }
+  .el-table--striped .el-table__body tr.el-table__row--striped:hover td,
+  .el-table--striped .el-table__body tr:hover td {
+    @include background_color("tableHover");
+  }
+  .el-table--striped .el-table__body tr.el-table__row--striped {
+    td {
+      @include background_color("tableStripedBg");
+    }
+  }
+}
+
+// =====================分页============================
+
+.el-pagination .el-select .el-input .el-input__inner,
+.el-pagination__editor.el-input .el-input__inner,
+.el-pagination.is-background .btn-next,
+.el-pagination.is-background .btn-prev,
+.el-pagination.is-background .el-pager li {
+  @include background_color("inputBg");
+  @include font_color("inputFont");
+  @include border_color("inputBorder");
+  border: 1px solid;
+}
+.el-pagination.is-background .el-pager li:not(.disabled).active {
+  background-color: #409eff !important;
+  color: #fff !important;
+}
+.el-pagination__jump, .el-pagination__total {
+  @include font_color("inputFont");
+}
+.el-pagination__show {
+  padding-right: 10px;
+  @include font_color("inputFont");
+}
+
+// el-select下拉框
+.el-select {
+  width: 200px;
+}
+.el-select-dropdown {
+  @include background_color("selectDropdownBg");
+  @include border_color("selectDropdownBg");
+  border: 1px solid;
+  .el-select-dropdown__item.hover,
+  .el-select-dropdown__item:hover {
+    @include background_color("selectDropdownSelectBg");
+    @include font_color("selectDropdownSelectFont");
+  }
+  .el-select-dropdown__item.selected {
+    @include background_color("selectDropdownSelectBg");
+    @include font_color("selectDropdownSelectFont");
+  }
+  .el-select-dropdown__item {
+    @include font_color("formLableFont");
+  }
+}
+// el-input
+.el-input.is-disabled .el-input__inner {
+  @include background_color("inputDisabledBg");
+}
+.el-input__inner,
+textarea.el-textarea__inner {
+  @include background_color("inputBg");
+  @include font_color("inputFont");
+  @include border_color("inputBorder");
+  border: 1px solid;
+}
+.el-input__inner::placeholder {
+  @include font_color("inputPlaceholder");
+}
+// el-form
+.el-form-item__label {
+  padding-right: 0;
+  @include font_color("formLableFont");
+}
+// el-card
+.el-card {
+  @include background_color("cardBg");
+  @include font_color("cardFontColor");
+  @include border_color("cardBg");
+  border: 1px solid;
+}
+.el-card__header {
+  padding: 18px 20px;
+  border-bottom: 1px solid;
+  @include border_color("cardBorder");
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+// el-transfer
+.el-transfer {
+  .el-transfer-panel {
+    border: none;
+    @include background_color("transfterBg");
+    .el-transfer-panel__header {
+      @include background_color("transfterBg");
+      .el-checkbox__label {
+        @include font_color("transferColor");
+        font-size: 15px;
+      }
+    }
+    .el-transfer-panel__body {
+      .el-checkbox__label {
+        @include font_color("transferColor");
+        font-size: 15px;
+      }
+    }
+  }
+}
+// 时间选择器
+.el-date-editor.el-input, .el-date-editor.el-input__inner {
+  width: 200px;
+}
+.el-picker-panel {
+  border: 1px solid;
+  @include background_color("pickerBg");
+  @include border_color("dropdownBorder");
+  @include font_color("formLableFont");
+  .el-picker-panel__sidebar {
+    @include background_color("pickerBg");
+    .el-picker-panel__shortcut {
+      @include font_color("formLableFont");
+    }
+  }
+  .el-picker-panel__footer {
+    @include background_color("selectDropdownBg");
+  }
+}
+.el-month-table, .el-year-table {
+  td .cell {
+    @include font_color("formLableFont");
+    margin: 0 auto;
+  }
+}
+.el-month-table td .cell:hover,
+.el-month-table td.current:not(.disabled) .cell {
+  @include font_color("selectDropdownSelectFont");
+}
+.el-year-table td .cell:hover,
+.el-year-table td.current:not(.disabled) .cell {
+  @include font_color("selectDropdownSelectFont");
+}
+.el-picker-panel__icon-btn,
+.el-date-table td,
+.el-date-picker__header-label,
+.el-form-item__label,
+.el-date-table th,
+.el-date-table td span {
+  @include font_color("formLableFont")
+}
+.el-date-table td.today span,
+.el-date-table td:hover span {
+  @include font_color("selectDropdownSelectFont");
+}
+.el-date-table td.start-date span,
+.el-date-table td.end-date span,
+.el-date-table td.today.start-date span,
+.el-date-table td.today.end-date span,
+.el-date-table td.start-date:hover span,
+.el-date-table td.end-date:hover span,
+.el-date-table td.current span,
+.el-date-table td.today.current span,
+.el-date-table td.current:hover span {
+  color: #FFFFFF !important;
+}
+.el-date-picker__header--bordered {
+  border-bottom: 1px solid #AFBDD1;
+}
+// 时间范围选择器
+.el-date-editor {
+  .el-range-separator {
+    color: #AFBDD1;
+    width: 10%;
+  }
+  .el-range-input {
+    @include background_color("inputBg");
+    @include font_color("inputFont");
+  }
+}
+.el-date-table td.in-range div {
+  background-color: rgba(136, 136, 136, .6);
+  &:hover {
+    background-color: rgba(153, 153, 153, .8);
+  }
+}
+.el-date-editor--daterange.el-input__inner {
+  width: 240px;
+}
+.el-date-table.is-week-mode .el-date-table__row.current div {
+  background-color: rgba(136, 136, 136, .6);
+}
+.el-date-table.is-week-mode .el-date-table__row:hover div {
+  background-color: rgba(153, 153, 153, .8);
+}
+
+// el-tab
+.el-tabs {
+  .el-tabs__header {
+    border-bottom: 1px solid;
+    @include border_color("dropdownBorder");
+    .el-tabs__nav {
+      @include border_color("dropdownBorder");
+    }
+    .el-tabs__item {
+      @include border_color("dropdownBorder");
+      @include font_color("formLableFont");
+    }
+    .el-tabs__item.is-active {
+      color: #409EFF !important;
+      border-bottom-color: #fff !important;
+    }
+  }
+}
+// el-collapse
+.el-collapse {
+  @include border_color("collapseBorder");
+  .el-collapse-item__header {
+    @include background_color("collapseBg");
+    @include font_color("formLableFont");
+    @include border_color("collapseBorder");
+    font-size: 14px;
+  }
+  .el-collapse-item__header.is-active{
+    border-bottom-color: transparent !important;
+  }
+  .el-collapse-item__wrap {
+    @include background_color("collapseBg");
+    @include border_color("collapseBorder");
+    .el-collapse-item__content {
+      @include font_color("tableFont");
+    }
+  }
+}
+// loading
+.el-loading-mask {
+  @include background_color("loadingMask");
+}
