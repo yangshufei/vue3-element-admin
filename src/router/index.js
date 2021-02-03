@@ -27,6 +27,16 @@ export const asyncRoutes = [
       { name: 'airportInfo', path: '/airportInfo', component: () => import('views/fq/basicSettings/airportInfo/index.vue'), meta: { title: '基础信息', parent: 'basicSettings' }}
     ]
   },
+  {
+    path: '/example',
+    name: 'example',
+    component: Layout,
+    meta: { title: 'example', icon: 'fa-cog' },
+    children: [
+      { name: 'variable', path: '/variable', component: () => import('views/fq/example/variable/index.vue'), meta: { title: 'ref reactive变量定义', parent: 'example' }},
+      { name: 'vModel', path: '/vModel', component: () => import('views/fq/example/vModel/index.vue'), meta: { title: 'v-model双向绑定', parent: 'example' }}
+    ]
+  },
   { path: '/*', redirect: '/404', hidden: true }
 ]
 
