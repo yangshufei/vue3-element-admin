@@ -31,10 +31,11 @@ export const asyncRoutes = [
     path: '/example',
     name: 'example',
     component: Layout,
-    meta: { title: 'example', icon: 'fa-cog' },
+    meta: { title: 'Vue3 Example', icon: 'fa-cog' },
     children: [
       { name: 'variable', path: '/variable', component: () => import('views/fq/example/variable/index.vue'), meta: { title: 'ref reactive变量定义', parent: 'example' }},
-      { name: 'vModel', path: '/vModel', component: () => import('views/fq/example/vModel/index.vue'), meta: { title: 'v-model双向绑定', parent: 'example' }}
+      { name: 'vModel', path: '/vModel', component: () => import('views/fq/example/vModel/index.vue'), meta: { title: 'v-model双向绑定', parent: 'example' }},
+      { name: 'cptCommunication', path: '/cptCommunication', component: () => import('views/fq/example/cptCommunication/index.vue'), meta: { title: '组件通信', parent: 'example' }}
     ]
   },
   { path: '/*', redirect: '/404', hidden: true }

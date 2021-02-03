@@ -18,6 +18,7 @@ export default {
     cpt
   },
   setup() {
+    // ref 就是通过 reactive 包装了一个对象 ，然后是将值传给该对象中的 value 属性,这也就解释了为什么每次访问时我们都需要加上 .value
     const refObj = ref({
       name: 'jac',
       age: 20
@@ -25,6 +26,8 @@ export default {
     const inputname = ref('')
 
     const refArray = ref(['111', '222'])
+
+    // reactive 方法是用来创建一个响应式的数据对象
     const reactiveObj = reactive({
       name: 'jac',
       age: 20
