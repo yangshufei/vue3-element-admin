@@ -1,6 +1,6 @@
 <template>
   <content-body title="基础信息">
-    <template v-slot:filter>
+    <template #filter>
       <div class="float-right">
         <el-button type="primary" icon="el-icon-fa fa-search" @click="search">查询</el-button>
         <el-button type="info" icon="el-icon-fa fa-refresh" @click="reset">清空</el-button>
