@@ -19,15 +19,6 @@ export const asyncRoutes = [
     ]
   },
   {
-    path: '/basicSettings',
-    name: 'basicSettings',
-    component: Layout,
-    meta: { title: '基础页面', icon: 'fa-cog' },
-    children: [
-      { name: 'airportInfo', path: '/airportInfo', component: () => import('views/fq/basicSettings/airportInfo/index.vue'), meta: { title: '表单查询', parent: 'basicSettings' }}
-    ]
-  },
-  {
     path: '/basicFunction',
     name: 'basicFunction',
     component: Layout,

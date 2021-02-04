@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import { ref, reactive, computed, toRefs } from 'vue'
+import { ref, unref, reactive, computed, toRefs } from 'vue'
 import cpt from './cpt'
 export default {
   components: {
@@ -23,6 +23,8 @@ export default {
       name: 'jac',
       age: 20
     })
+    console.log(refObj.value.name, unref(refObj).name, 'unref')
+
     const inputname = ref('')
 
     const refArray = ref(['111', '222'])
