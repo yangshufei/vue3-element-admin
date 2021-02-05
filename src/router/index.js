@@ -37,7 +37,8 @@ export const asyncRoutes = [
       { name: 'vModel', path: '/vModel', component: () => import('views/fq/example/vModel/index.vue'), meta: { title: 'v-model双向绑定', parent: 'example' }},
       { name: 'cptCommunication', path: '/cptCommunication', component: () => import('views/fq/example/cptCommunication/index.vue'), meta: { title: '组件通信', parent: 'example' }},
       { name: 'watch', path: '/watch', component: () => import('views/fq/example/watch/index.vue'), meta: { title: 'watch的使用', parent: 'example' }},
-      { name: 'slot', path: '/slot', component: () => import('views/fq/example/slot/index.vue'), meta: { title: 'slot的使用', parent: 'example' }}
+      { name: 'slot', path: '/slot', component: () => import('views/fq/example/slot/index.vue'), meta: { title: 'slot的使用', parent: 'example' }},
+      { name: 'menu', path: '/menu', component: () => import('views/fq/example/menu/index.vue'), meta: { title: '递归组件', parent: 'example' }}
     ]
   },
   { path: '/*', redirect: '/404', hidden: true }
