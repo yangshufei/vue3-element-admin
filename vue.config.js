@@ -7,6 +7,7 @@ function resolve(dir) {
 }
 
 const isProd = process.env.NODE_ENV === 'production'
+const name = process.env.VUE_APP_BASE_NAME || 'Vue Element Admin'
 
 module.exports = {
   productionSourceMap: false,
@@ -15,15 +16,19 @@ module.exports = {
   devServer: {
     open: true,
     port: 2022,
-    proxy: {
-      '/services': {
-        target: 'http://192.168.204.204:7025',
-        changeOrigin: true
-        // pathRewrite: {
-        //   '^/services': ''
-        // }
-      }
-    }
+    before:
+      process.env.NODE_ENV === 'development'
+        ? require('./mock/mock-server.js')
+        : ''
+    // proxy: {
+    //   '/services': {
+    //     target: 'http://192.168.204.204:7025',
+    //     changeOrigin: true
+    //     // pathRewrite: {
+    //     //   '^/services': ''
+    //     // }
+    //   }
+    // }
   },
   css: {
     // 是否使用css分离插件 ExtractTextPlugin
@@ -36,6 +41,7 @@ module.exports = {
     }
   },
   configureWebpack: {
+    name: name,
     resolve: {
       alias: {
         '@': resolve('src'),

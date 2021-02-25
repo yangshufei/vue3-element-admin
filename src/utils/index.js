@@ -1,6 +1,3 @@
-import CryptoJS from 'crypto-js'
-import { AES_CRYPT } from 'utils/dict'
-
 export function cleanArray(actual) {
   const newArray = []
   for (let i = 0; i < actual.length; i++) {
@@ -211,48 +208,6 @@ export function deepClone(source) {
     }
   }
   return targetObj
-}
-
-// 加密
-export function aesEncrypt(str, type) {
-  const type__ = type || 'TOKEN'
-  const key = CryptoJS.enc.Latin1.parse(AES_CRYPT[type__].key)
-  const iv = CryptoJS.enc.Latin1.parse(AES_CRYPT[type__].iv)
-
-  return CryptoJS.AES.encrypt(str, key, { iv, mode: CryptoJS.mode.CBC, padding: CryptoJS.pad.Pkcs7 }).toString()
-}
-
-// 解密
-export function aesDecrypt(encrypted, type) {
-  const type__ = type || 'TOKEN'
-  const key = CryptoJS.enc.Latin1.parse(AES_CRYPT[type__].key)
-  const iv = CryptoJS.enc.Latin1.parse(AES_CRYPT[type__].iv)
-
-  return CryptoJS.AES.decrypt(encrypted, key, { iv, mode: CryptoJS.mode.CBC, padding: CryptoJS.pad.Pkcs7 }).toString(CryptoJS.enc.Utf8)
-}
-/**
- * 加密
- */
-export function aes128Encrypt(word, type) {
-  const srcs = CryptoJS.enc.Latin1.parse(word)
-  const key = CryptoJS.enc.Latin1.parse(AES_CRYPT[type].key)
-  var encrypted = CryptoJS.AES.encrypt(srcs, key, {
-    mode: CryptoJS.mode.ECB,
-    padding: CryptoJS.pad.Pkcs7
-  })
-  return encrypted.toString(CryptoJS.enc.Utf8)
-}
-/**
-* 解密
-*/
-export function aes128Decrypt(word, type) {
-  const srcs = CryptoJS.enc.Latin1.parse(word)
-  const key = CryptoJS.enc.Latin1.parse(AES_CRYPT[type].key)
-  var decrypt = CryptoJS.AES.decrypt(srcs, key, {
-    mode: CryptoJS.mode.ECB,
-    padding: CryptoJS.pad.Pkcs7
-  })
-  return CryptoJS.enc.Latin1.stringify(decrypt).toString(CryptoJS.enc.Utf8)
 }
 
 export function debounce(func, wait, immediate) {
