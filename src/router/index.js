@@ -24,7 +24,8 @@ export const asyncRoutes = [
     component: Layout,
     meta: { title: '基础功能', icon: 'fa-cog' },
     children: [
-      { name: 'formPage', path: '/formPage', component: () => import('views/fq/basicFunction/formPage/index.vue'), meta: { title: '表单查询', parent: 'basicFunction' }}
+      { name: 'formPage', path: '/formPage', component: () => import('views/fq/basicFunction/formPage/index.vue'), meta: { title: '表单查询', parent: 'basicFunction' }},
+      { name: 'chart', path: '/chart', component: () => import('views/fq/basicFunction/chart/index.vue'), meta: { title: '图表', parent: 'basicFunction' }}
     ]
   },
   {
