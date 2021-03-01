@@ -25,7 +25,8 @@ export const asyncRoutes = [
     meta: { title: '基础功能', icon: 'fa-cog' },
     children: [
       { name: 'formPage', path: '/formPage', component: () => import('views/fq/basicFunction/formPage/index.vue'), meta: { title: '表单查询', parent: 'basicFunction' }},
-      { name: 'chart', path: '/chart', component: () => import('views/fq/basicFunction/chart/index.vue'), meta: { title: '图表', parent: 'basicFunction' }}
+      { name: 'chart', path: '/chart', component: () => import('views/fq/basicFunction/chart/index.vue'), meta: { title: '图表', parent: 'basicFunction' }},
+      { name: 'tableOne', path: '/tableOne', component: () => import('views/fq/basicFunction/tableOne/index.vue'), meta: { title: '表格滚动折叠', parent: 'basicFunction' }}
     ]
   },
   {
