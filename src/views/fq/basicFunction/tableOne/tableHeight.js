@@ -117,15 +117,8 @@ export default function() {
     iframeHtml.value.remove()
   })
   return {
-    iframeHtml,
     showAllFilter,
     maxTableHeight,
-    tableDom,
-    otherElmHeight,
-    searchHeight,
-    getElmHeight,
-    setFilterForm,
-    initPageHeight,
-    _initPage
+    setFilterForm
   }
 }
