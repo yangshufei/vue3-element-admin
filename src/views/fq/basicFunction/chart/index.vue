@@ -5,8 +5,9 @@
 </template>
 
 <script>
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
 import lineChart from './lineChart'
+import { selectTypeData } from 'api/mockChart'
 
 export default {
   components: {
@@ -14,6 +15,15 @@ export default {
   },
   setup() {
     const chartData = ref([5, 20, 36, 10, 10, 20])
+
+    const getChartData = async() => {
+      const { data } = await selectTypeData()
+      console.log(data, 'chart')
+    }
+
+    onMounted(() => {
+      getChartData()
+    })
     return {
       chartData
     }
