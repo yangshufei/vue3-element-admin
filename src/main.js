@@ -16,6 +16,9 @@ import 'element-plus/lib/theme-chalk/index.css'
 import locale from 'element-plus/lib/locale/lang/zh-cn'
 app.use(ElementPlus, { size: 'small', locale })
 
+import ImagePreview from './components/imagePreview/index'
+app.use(ImagePreview)
+
 import ContentBody from 'components/contentBody'
 app.component('content-body', ContentBody)
 

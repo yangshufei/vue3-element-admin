@@ -33,6 +33,11 @@
     <el-table-column prop="name" label="活动名称" align="center" />
     <el-table-column prop="region" label="活动区域" align="center" />
     <el-table-column prop="type" label="活动性质" align="center" />
+    <el-table-column prop="img" label="图片" align="center">
+      <template v-slot>
+        <img :src="imageUrl" width="100" height="100" @click="ctx.$ImagePreview({src:imageUrl})" />
+      </template>
+    </el-table-column>
      <el-table-column label="操作" align="center">
         <template v-slot="{row}">
           <el-button type="text" @click="dialogHandle(row)">编辑</el-button>
@@ -45,7 +50,7 @@
 </template>
 
 <script>
-import { ref, reactive, toRefs, onMounted } from 'vue'
+import { ref, reactive, toRefs, onMounted, getCurrentInstance } from 'vue'
 import publicTable from 'components/publicTable'
 import editDialog from './editDialog'
 export default {
@@ -70,8 +75,12 @@ export default {
       },
       exportLoading: false,
       detailRow: {},
-      dialogShow: false
+      dialogShow: false,
+      imageShow: false,
+      imageUrl: 'https://dss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2676935521,922112450&fm=11&gp=0.jpg'
     })
+
+    const { ctx } = getCurrentInstance()
 
     const dialogHandle = (row) => {
       state.detailRow = row
@@ -112,7 +121,8 @@ export default {
       search,
       reset,
       exportData,
-      dialogHandle
+      dialogHandle,
+      ctx
     }
   }
 }
