@@ -28,7 +28,10 @@
       </div>
     </el-form>
   </template>
-
+  <alert title="带辅助性文字介绍"
+    type="success"
+    description="这是一句绕口令：黑灰化肥会挥发发灰黑化肥挥发；灰黑化肥会挥发发黑灰化肥发挥。 黑灰化肥会挥发发灰黑化肥黑灰挥发化为灰……">
+  </alert>
   <public-table :pageOptions="initPagination" :tableList="tableData" @reload="tableReload" v-loading="tableLoading">
     <el-table-column prop="name" label="活动名称" align="center" />
     <el-table-column prop="region" label="活动区域" align="center" />
@@ -46,6 +49,7 @@
   </public-table>
 
   <edit-dialog v-if="dialogShow" v-model:show="dialogShow" :detailRow="detailRow"></edit-dialog>
+
 </content-body>
 </template>
 
@@ -53,10 +57,12 @@
 import { ref, reactive, toRefs, onMounted, getCurrentInstance } from 'vue'
 import publicTable from 'components/publicTable'
 import editDialog from './editDialog'
+import alert from 'components/alert'
 export default {
   components: {
     publicTable,
-    editDialog
+    editDialog,
+    alert
   },
   setup() {
     const formRef = ref(null)
